@@ -2,7 +2,7 @@
 .DS_Store
 
 #settings
-#unisustain/unisustain/settings.py
+unisustain/unisustain/settings.py
 
 #database migrations folder
 unisustain/account/migrations/
