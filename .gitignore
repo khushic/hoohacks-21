@@ -1,0 +1,15 @@
+#macOS files
+.DS_Store
+
+#settings
+unisustain/unisustain/settings.py
+
+#database migrations folder
+unisustain/account/migrations/
+unisustain/grants/migrations/
+
+#pycache folders
+unisustain/account/__pycache__/
+unisustain/grants/__pycache__/
+unisustain/__pycache__/
+*.pyc
