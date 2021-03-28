@@ -1,16 +1,8 @@
-<!-- {% if user.is_authenticated %}
-  <a href="login">Login</a>
-{% else %}
-
-
-{% endif %} -->
-
-
 <!DOCTYPE html><html class="menu">
 {% load static %}
 <html>
 <head>
-<title>Side Bar</title>
+<title>UniSustain</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/tags.css' %}" />
 <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
@@ -22,7 +14,6 @@
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <style>
-
 	.modal-login {
 		color: #636363;
 		width: 350px;
@@ -128,15 +119,14 @@
 	</div>
 </div>
 <!-- start of actual stuff (modal is b4) -->
-<div class="topnav" style="margin-left: 30rem; margin-top: 10rem">
-    <p>Forum</p>
+<div class="topnav" style="margin-left: 35rem; margin-top: 10rem; margin-right: 10rem; margin-bottom: 10rem">
 
 	{% block content %}
 	{% endblock %}
 </div>
 
 <!-- side bar -->
-<nav class="main-menu">
+<nav class="main-menu" style="height: 100%">
 
 
 
@@ -149,23 +139,9 @@
 
 <ul>
 
-<li>
-<a href="\login">
-<i class="fa fa-user fa-lg"></i>
-<span class="nav-text">Login</span>
-</a>
-</li>
-
-<!-- <li>
-<a href="">
-<i class="fa fa-home fa-lg"></i>
-<span class="nav-text">Dashboard</span>
-</a>
-</li> -->
-
 
 <li>
-<a href="/base">
+<a href="/research-forum">
 <i class="fa fa-newspaper-o fa-lg"></i>
 <span class="nav-text">Forum</span>
 </a>
@@ -189,30 +165,36 @@
 </li>
 
 <li>
-<a href="">
-<i class="fa fa-group fa-lg"></i>
-<span class="nav-text">Events</span>
-</a>
+	<a href="">
+	<i class="fa fa-group fa-lg"></i>
+	<span class="nav-text">Events</span>
+	</a>
 </li>
 
+{% if user.is_authenticated %}
 
-<!-- <ul class="logout">
 <li>
-  <a href="http://startific.com">
-  <i class="fa fa-lightbulb-o fa-lg"></i>
-  <span class="nav-text">
-  BLOG
-  </span>
-  </a>
+	<a href="/logout">
+	<i class="fa fa-user fa-lg"></i>
+	<span class="nav-text">Logout</span>
+	</a>
 </li>
-</ul> -->
+{% else %}
+<li>
+	<a href="/login">
+	<i class="fa fa-user fa-lg"></i>
+	<span class="nav-text">Login</span>
+	</a>
+</li>
+
+{% endif %}
+
 </nav>
 
 
 
-
+</div>
 
 
 </body>
 </html>
-<!-- /#wrapper -->

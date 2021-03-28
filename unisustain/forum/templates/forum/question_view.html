@@ -18,8 +18,8 @@
 
 <form method="POST" action="{% url 'research-forum:new_forum_comment' question.questionID %}" class="form-group">
   {% csrf_token %}
-  <input type="text" class="form-control" name="comment" id="comment" /><br/>
-  <button type="submit" class="btn btn-success">Comment</button>
+  <input style="display: inline-block; width: 60%" type="text" class="form-control" name="comment" id="comment" />
+  <button style="display: inline-block" type="submit" class="btn btn-success">Comment</button>
 </form>
 
 {% endblock %}

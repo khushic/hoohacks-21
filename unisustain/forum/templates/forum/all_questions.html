@@ -1,35 +1,75 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base.html'%}
 
 {% block content %}
 {% load tag_templates %}
 
+<div class="topnav">
+	 <h1>Forum</h1>
+</div>
 
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-login">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Forum Entry</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+        <form method="POST" action="/research-forum/new_question/" class="form-group">
+          {% csrf_token %}
+          <label for="question_name">Question Title</label>
+          <input type="text" class="form-control" name="question_name" id="question_name" /><br/>
+          <label for="tags">Tags (comma separated)</label>
+          <input type="text" class="form-control" name="tags" id="tags" /><br/>
+          <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="checkbox" checked autocomplete="off"> Checked
+            </label>
+            <label class="btn btn-secondary active">
+              <input type="checkbox" checked autocomplete="off"> Checked
+            </label>
+          </div>
+          <label for="description">Further Details</label>
+          <input type="text" class="form-control" name="description" id="description" /><br/>
+          <button type="submit" class="btn btn-success">Post</button>
+        </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="row">
+<div style="width: 75%; display: inline-block">
+  <h5 style="height: 100%">post any questions you may have t</h5>
+</div>
+<div style="width: 23%; display: inline-block" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
+</div>
 {% for question in all_questions %}
-    <a href="{% url 'research-forum:view_questions' question.questionID %}">{{question.title}}</a>
-    <p>{{question.username}}</p>
-    {% for t in question.tags %}
-      <h7 class="tags {{t|tag_to_class}}">{{ t }}</h7>
-    {% endfor %}
-    <br>
+<div class="column">
+  <div class="card" style="height: 225px; padding: 0rem">
+    <a href="{% url 'research-forum:view_questions' question.questionID %}" class="card-top-line" style="height: max-content; font-weight: 200!important">
+      <div style="display: inline-block; width: 100%; padding: 0rem 5rem">
+        <h3 style="float: left">{{question.username}}</h3>
+        <h4 style="float: right; padding-top: 2rem; font-weight: 300">{{question.title}}</h4>
+      </div>
+      <br>
+      <div style="margin-left: 4.5rem; float: left">
+        {% for t in question.tags %}
+          <h7 class="tags {{t|tag_to_class}}"">{{ t }}</h7>
+        {% endfor %}
+      </div>
+      <br/>
+      <br/>
+      <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300">{{question.content}}</h5>
+    </a>
+</div>
+</div>
+<br>
 {% endfor %}
 
-<form method="POST" action="/research-forum/new_question/" class="form-group">
-  {% csrf_token %}
-  <label for="question_name">Question Title</label>
-  <input type="text" class="form-control" name="question_name" id="question_name" /><br/>
-  <label for="tags">Tags (comma separated)</label>
-  <input type="text" class="form-control" name="tags" id="tags" /><br/>
-  <div class="btn-group-toggle" data-toggle="buttons">
-    <label class="btn btn-secondary active">
-      <input type="checkbox" checked autocomplete="off"> Checked
-    </label>
-    <label class="btn btn-secondary active">
-      <input type="checkbox" checked autocomplete="off"> Checked
-    </label>
-  </div>
-  <label for="description">Further Details</label>
-  <input type="text" class="form-control" name="description" id="description" /><br/>
-  <button type="submit" class="btn btn-success">Post</button>
-</form>
+
 
 {% endblock %}
