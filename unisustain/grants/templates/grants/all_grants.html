@@ -1,5 +1,6 @@
 {% for grant in all_funds %}
-    <a href="{% url 'grants/view_grant/' %}">{{grant.fundname}}</a>
+<!--    <a href="/grants/view_grants/{{grant.id}}">{{grant.fundname}}</a>-->
+    <a href="{% url 'grants:view_grants' grant.id %}">{{grant.fundname}}</a>
     <p>{{grant.sponsor}}</p>
     <p>{{grant.tags}}</p>
     <p>{{grant.school}}</p>
