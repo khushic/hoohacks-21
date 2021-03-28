@@ -117,7 +117,6 @@ transition: all 1.0s ease 0s;
 }
 
 .topnav {
-  background-color:#F7F7F7;
   overflow: hidden;
   text-align: center;
   justify-content: center;
@@ -502,4 +501,17 @@ height: 100%;
 .modal-login .btn:hover, .modal-login .btn:focus {
   background: #45aba6;
   outline: none;
+}
+
+
+.info-boxes{
+  height: max-content;
+  font-weight: 200!important;
+  background-color: #EEEEEE;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+h3{
+  font-weight: 200;
 }
