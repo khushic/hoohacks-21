@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'accounts.apps.AccountsConfig',
     'grants.apps.GrantsConfig',
+    'events.apps.EventsConfig',
 ]
 
 MIDDLEWARE = [
