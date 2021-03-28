@@ -2,7 +2,6 @@
 .DS_Store
 
 #settings
-unisustain/unisustain/settings.py
 
 #database migrations folder
 unisustain/account/migrations/
@@ -10,6 +9,7 @@ unisustain/grants/migrations/
 unisustain/main/migrations/
 unisustain/forum/migrations/
 unisustain/connect/migrations/
+unisustain/events/migrations/
 
 #pycache folders
 unisustain/account/__pycache__/
@@ -17,5 +17,6 @@ unisustain/grants/__pycache__/
 unisustain/main/__pycache__/
 unisustain/forum/__pycache__/
 unisustain/connect/__pycache__/
+unisustain/events/migrations/
 unisustain/__pycache__/
 *.pyc
