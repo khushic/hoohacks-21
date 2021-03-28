@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib import admin
+from _datetime import datetime
 
 looking = (
     ('Looking to Join', 'Looking to Join'),
@@ -97,6 +98,19 @@ class Event(models.Model):
         managed = True
         db_table = 'Event'
 
+class Chat(models.Model):
+    id = models.AutoField(primary_key=True, null=False)
+    username = models.TextField()
+    message = models.CharField(max_length = 100, default = "")
+    time = models.DateTimeField(default=datetime.now())
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        managed = True
+        db_table = 'Chat'
+
 
 admin.site.register(Post)
 admin.site.register(Question)
@@ -104,3 +118,4 @@ admin.site.register(Postcomment)
 admin.site.register(Questioncomment)
 admin.site.register(Fund)
 admin.site.register(Event)
+admin.site.register(Chat)
