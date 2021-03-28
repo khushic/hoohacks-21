@@ -1,9 +1,8 @@
 from django.contrib import admin
-from django.urls import path, include
-from accounts import views as v
-from grants import views as v2
+from django.urls import include, path
 
 urlpatterns = [
+    path('account/', include('account.urls')),
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('register/', v.register, name="register"),
