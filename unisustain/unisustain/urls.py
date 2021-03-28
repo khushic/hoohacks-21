@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+admin.autodiscover()
 from accounts import views as v
 
 urlpatterns = [
@@ -7,4 +8,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('register/', v.register, name="register"),
     path('', include("django.contrib.auth.urls")),
+    path('grants/', include('grants.urls')),
 ]

@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
-from  django.contrib.auth.models import User
+from django.contrib.auth.models import User
+from django.contrib import admin
 
 looking = (
     ('Looking to Join', 'Looking to Join'),
@@ -9,7 +10,7 @@ looking = (
 
 class Post(models.Model):
     postID = models.AutoField(primary_key = True, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, db_column="id")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.TextField()
     content = models.TextField()
     search = models.TextField(choices = looking)
@@ -24,7 +25,7 @@ class Post(models.Model):
 
 class Question(models.Model):
     questionID = models.AutoField(primary_key = True, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, db_column="id")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.TextField()
     content = models.TextField(default = "")
     tags = models.TextField()
@@ -38,8 +39,8 @@ class Question(models.Model):
 
 class Postcomment(models.Model):
     postcommentID = models.AutoField(primary_key = True, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, db_column="id")
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, db_column="postID")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
     comment = models.TextField()
 
     def __str__(self):
@@ -51,8 +52,8 @@ class Postcomment(models.Model):
 
 class Questioncomment(models.Model):
     questioncommentID = models.AutoField(primary_key = True, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, db_column="id")
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, db_column="postID")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
     comment = models.TextField()
 
     def __str__(self):
@@ -66,6 +67,7 @@ class Fund(models.Model):
     fundID = models.AutoField(primary_key = True, null=False)
     fundname = models.CharField(max_length = 255)
     tags = models.TextField()
+    sponsor = models.CharField(max_length = 255, default = "")
     school = models.CharField(max_length = 255, default = "")
     description = models.TextField(default = "")
     info = models.TextField(default = "")
@@ -81,6 +83,7 @@ class Fund(models.Model):
 class Event(models.Model):
     eventID = models.AutoField(primary_key = True, null=False)
     eventname = models.CharField(max_length = 255)
+    eventdate = models.DateTimeField(null=True)
     tags = models.TextField()
     school = models.CharField(max_length = 255, default = "")
     description = models.TextField(default = "")
@@ -93,3 +96,11 @@ class Event(models.Model):
     class Meta:
         managed = True
         db_table = 'Event'
+
+
+admin.site.register(Post)
+admin.site.register(Question)
+admin.site.register(Postcomment)
+admin.site.register(Questioncomment)
+admin.site.register(Fund)
+admin.site.register(Event)
