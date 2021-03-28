@@ -83,7 +83,8 @@ class Fund(models.Model):
 class Event(models.Model):
     eventID = models.AutoField(primary_key = True, null=False)
     eventname = models.CharField(max_length = 255)
-    eventdate = models.DateTimeField(null=True)
+    eventdate = models.TextField(null=True)
+    organizer = models.TextField(null=True)
     tags = models.TextField()
     school = models.CharField(max_length = 255, default = "")
     description = models.TextField(default = "")
