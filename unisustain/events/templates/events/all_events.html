@@ -16,11 +16,9 @@
         <form method="POST" action="/events/new_event/" class="form-group">
           {% csrf_token %}
           <label for="event_name">Event Title</label>
-          <input type="text" class="form-control" name="fund_name" id="fund_name" /><br/>
+          <input type="text" class="form-control" name="event_name" id="event_name" /><br/>
           <label for="event_date">Event Date</label>
-          <input type="text" class="form-control" name="fund-name" id="fund-name" /><br/>
-          <label for="sponsor">Sponsor</label>
-          <input type="text" class="form-control" name="sponsor" id="sponsor" /><br/>
+          <input type="text" class="form-control" name="event_date" id="event_date" /><br/>
           <label for="tags">Tags (comma separated)</label>
           <input type="text" class="form-control" name="tags" id="tags" /><br/>
           <label for="schools">Universities Eligible (Enter General if all students can apply)</label>
