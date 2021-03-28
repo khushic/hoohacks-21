@@ -8,10 +8,12 @@ unisustain/unisustain/settings.py
 unisustain/account/migrations/
 unisustain/grants/migrations/
 unisustain/main/migrations/
+unisustain/forum/migrations/
 
 #pycache folders
 unisustain/account/__pycache__/
 unisustain/grants/__pycache__/
 unisustain/main/__pycache__/
+unisustain/forum/__pycache__/
 unisustain/__pycache__/
 *.pyc

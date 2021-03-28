@@ -1,0 +1,16 @@
+<p>{{question.title}}</p>
+<p>{{question.username}}</p>
+<p>{{question.tags}}</p>
+<p>{{question.content}}</p>
+<br>
+{% for comment in all_comments %}
+    <p>{{comment.username}}</p>
+    <p>{{comment.comment}}</p>
+    <br>
+{% endfor %}
+
+<form method="POST" action="{% url 'research-forum:new_forum_comment' question.questionID %}" class="form-group">
+  {% csrf_token %}
+  <input type="text" class="form-control" name="comment" id="comment" /><br/>
+  <button type="submit" class="btn btn-success">Comment</button>
+</form>
