@@ -9,6 +9,4 @@ urlpatterns = [
     path('register/', v.register, name="register"),
     path('', include("django.contrib.auth.urls")),
     path('grants/', include('grants.urls', namespace='grants')),
-    #path('grants/', v2.get_all_grants, name="viewall"),
-    #path('view_grants/', v2.get_grant, name="viewone"),
 ]

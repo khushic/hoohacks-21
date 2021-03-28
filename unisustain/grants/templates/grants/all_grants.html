@@ -1,9 +1,27 @@
 {% for grant in all_funds %}
-<!--    <a href="/grants/view_grants/{{grant.id}}">{{grant.fundname}}</a>-->
-    <a href="{% url 'grants:view_grants' grant.id %}">{{grant.fundname}}</a>
+    <a href="{% url 'grants:view_grants' grant.fundID %}">{{grant.fundname}}</a>
     <p>{{grant.sponsor}}</p>
     <p>{{grant.tags}}</p>
     <p>{{grant.school}}</p>
     <p>{{grant.applink}}</p>
     <br>
 {% endfor %}
+
+<form method="POST" action="/grants/new_grant/" class="form-group">
+  {% csrf_token %}
+  <label for="fund_name">Grant Title</label>
+  <input type="text" class="form-control" name="fund_name" id="fund_name" /><br/>
+  <label for="sponsor">Sponsor</label>
+  <input type="text" class="form-control" name="sponsor" id="sponsor" /><br/>
+  <label for="tags">Tags (comma separated)</label>
+  <input type="text" class="form-control" name="tags" id="tags" /><br/>
+  <label for="schools">Universities Eligeable (Enter General if all students can apply)</label>
+  <input type="text" class="form-control" name="schools" id="schools" /><br/>
+  <label for="description">Short Description</label>
+  <input type="text" class="form-control" name="description" id="description" /><br/>
+  <label for="info">Link for more Info</label>
+  <input type="text" class="form-control" name="info" id="info" /><br/>
+  <label for="apply">Link to Apply</label>
+  <input type="text" class="form-control" name="apply" id="apply" /><br/>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
