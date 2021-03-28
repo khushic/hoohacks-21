@@ -18,4 +18,12 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< Updated upstream
+=======
+    path('', include('main.urls')),
+    path('register/', v.register, name="register"),
+    path('', include("django.contrib.auth.urls")),
+    path('grants/', include('grants.urls', namespace='grants')),
+    path('events/', include('events.urls', namespace='events')),
+>>>>>>> Stashed changes
 ]

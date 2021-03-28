@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< Updated upstream
+=======
+    'crispy_forms',
+    'main.apps.MainConfig',
+    'accounts.apps.AccountsConfig',
+    'grants.apps.GrantsConfig',
+    'events.apps.EventsConfig',
+>>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
