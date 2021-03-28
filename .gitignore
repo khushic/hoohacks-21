@@ -4,7 +4,7 @@
 #settings
 
 #database migrations folder
-unisustain/account/migrations/
+unisustain/accounts/migrations/
 unisustain/grants/migrations/
 unisustain/main/migrations/
 unisustain/forum/migrations/
@@ -12,7 +12,7 @@ unisustain/connect/migrations/
 unisustain/events/migrations/
 
 #pycache folders
-unisustain/account/__pycache__/
+unisustain/accounts/__pycache__/
 unisustain/grants/__pycache__/
 unisustain/main/__pycache__/
 unisustain/forum/__pycache__/
