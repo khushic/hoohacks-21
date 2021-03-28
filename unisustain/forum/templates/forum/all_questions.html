@@ -4,7 +4,7 @@
 {% load tag_templates %}
 
 <div class="topnav">
-	 <h1>Forum</h1>
+	 <h1>Research Forum</h1>
 </div>
 
 <div id="myModal" class="modal fade">
@@ -21,14 +21,14 @@
           <input type="text" class="form-control" name="question_name" id="question_name" /><br/>
           <label for="tags">Tags (comma separated)</label>
           <input type="text" class="form-control" name="tags" id="tags" /><br/>
-          <div class="btn-group-toggle" data-toggle="buttons">
+          <!--<div class="btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active">
               <input type="checkbox" checked autocomplete="off"> Checked
             </label>
             <label class="btn btn-secondary active">
               <input type="checkbox" checked autocomplete="off"> Checked
             </label>
-          </div>
+          </div>-->
           <label for="description">Further Details</label>
           <input type="text" class="form-control" name="description" id="description" /><br/>
           <button type="submit" class="btn btn-success">Post</button>
@@ -41,14 +41,16 @@
 
 
 
-
-<div style="width: 23%; display: inline-block" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
+<div style="padding-bottom: 1rem">
+<div style="float: left; display: inline-block; height: 96px; margin-bottom: -80px"><h5>The Research Forum is a place for students to collaborate with each other, as well as professional researchers and professors <br>by asking and answering broader, thought provoking research questions.</h5></div>
+<div style="float: right ; display: inline-block" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
+</div>
 
 {% for question in all_questions %}
     <a href="{% url 'research-forum:view_questions' question.questionID %}" class="card-top-line info-boxes">
       <div style="display: inline-block; width: 100%; padding: 0rem 5rem">
-        <h3 style="float: left">{{question.username}}</h3>
-        <h4 style="float: right; padding-top: 2rem; font-weight: 300">{{question.title}}</h4>
+        <h3 style="float: left">{{question.title}}</h3>
+        <h4 style="float: right; padding-top: 2rem; font-weight: 300; font-style: italic;">{{question.username}}</h4>
       </div>
       <br>
       <div style="margin-left: 4.5rem; float: left">

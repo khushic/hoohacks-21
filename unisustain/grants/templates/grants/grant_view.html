@@ -1,8 +1,26 @@
-<p>{{fund.fundname}}</p>
-<p>{{fund.sponsor}}</p>
-<p>{{fund.tags}}</p>
-<p>{{fund.school}}</p>
-<p>{{fund.description}}</p>
-<p>{{fund.info}}</p>
-<p>{{fund.applink}}</p>
-<br>
+{% extends 'main/base.html' %}
+{% block content %}
+{% load tag_templates %}
+
+<div class="card-top-line info-boxes" style="height: 400px; border-bottom-color: black; border-bottom-width: 5px">
+  <div style="display: inline-block; width: 100%; padding: 2rem 5rem;">
+    <h3 style="float: left">{{fund.fundname}}</h3>
+    <h4 style="float: right; padding-top: 2rem; font-weight: 300; font-style: italic;">{{fund.sponsor}}</h4>
+  </div>
+  <br>
+  <div style="margin-left: 4.5rem; float: left">
+    {% for t in fund.tags %}
+      <h7 class="tags {{t|tag_to_class}}"">{{ t }}</h7>
+    {% endfor %}
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300">{{fund.school}}</h5><br><br><br>
+  <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300">{{fund.description}}</h5><br><br><br>
+  <a href="{{fund.info}}" style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300; padding: 0rem; text-decoration: underline">See More Info</a><br><br>
+  <a href="{{fund.applink}}" style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300; padding: 0rem; text-decoration: underline">Apply!</a>
+</div>
+
+
+{% endblock %}

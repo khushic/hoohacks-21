@@ -1,18 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
 # Create your views here.
 from .models import Event
+from django.forms.models import model_to_dict
+
 
 def get_all_events(request):
-    all_events = Event.objects.all()
+    all_events = list(Event.objects.all().values())
+    print(all_events)
+    for i in all_events:
+        i["tags"] = i["tags"].split(", ")
     context = {
         'all_events':all_events
     }
     return render(request, "events/all_events.html", context)
 
 def get_event(request, event_id):
-    event = Event.objects.get(eventID = event_id)
+    query = Event.objects.get(eventID = event_id)
+    event = model_to_dict(query)
+    event["tags"] = event["tags"].split(", ")
     context = {
         'event':event
     }
@@ -20,7 +26,6 @@ def get_event(request, event_id):
 
 def create_event(response):
     if response.method == "POST":
-        print("hello")
         created_obj = Event.objects.get_or_create(
             eventname=response.POST.get('event_name'),
             eventdate=response.POST.get('event_date'),

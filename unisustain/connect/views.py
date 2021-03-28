@@ -8,6 +8,7 @@ def get_all_posts(request):
     all_posts = list(Post.objects.all().values())
     for i in all_posts:
         i["username"] = User.objects.get(id=i["user_id"]).username
+        i["tags"] = i["tags"].split(", ")
     context = {
         'all_posts':all_posts
     }
@@ -17,6 +18,7 @@ def get_post(request, post_id):
     query = Post.objects.get(postID = post_id)
     post = model_to_dict(query)
     post["username"] = User.objects.get(id=post["user"]).username
+    post["tags"] = post["tags"].split(", ")
     try:
         all_comments = list(Postcomment.objects.filter(post = post_id).values())
         for i in all_comments:
@@ -50,6 +52,7 @@ def create_comment(request, post_id):
     query = Post.objects.get(postID = post_id)
     post = model_to_dict(query)
     post["username"] = User.objects.get(id=post["user"]).username
+    post["tags"] = post["tags"].split(", ")
     try:
         all_comments = list(Postcomment.objects.filter(post = post_id).values())
         for i in all_comments:

@@ -1,8 +1,10 @@
 {% extends 'main/base.html'%}
 
 {% block content %}
+{% load tag_templates %}
+
 <div class="topnav">
-	 <p>Grants</p>
+	<h1>Grants</h1>
 </div>
 <div id="myModal" class="modal fade">
 	<div class="modal-dialog modal-login">
@@ -34,25 +36,31 @@
 		</div>
 	</div>
 </div>
-{% for grant in all_funds %}
 
-{% endfor %}
 
-<div class="row">
-<div class="stick-to-right" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
-{% for question in all_questions %}
-<div class="column">
-  <div class="card">
-    <a href="{% url 'grants:view_grants' grant.fundID %}">{{grant.fundname}}</a>
-    <p>{{grant.sponsor}}</p>
-    <p>{{grant.tags}}</p>
-    <p>{{grant.school}}</p>
-    <p>{{grant.applink}}</p>
-    <br>
-  </div>
+<div style="padding-bottom: 1rem">
+<div style="float: left; display: inline-block; height: 96px; margin-bottom: -80px"><h5>All research projects need funding, especially independent research projects but it always seems impossible to find opportunities. <br>The Grants tab includes company inputed grant/funding opportunities, as well as opportunities found through web scraping.</h5></div>
+<div style="float: right ; display: inline-block" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
 </div>
+
+{% for grant in all_grants %}
+		<a href="{% url 'grants:view_grants' grant.fundID %}" class="card-top-line info-boxes">
+      <div style="display: inline-block; width: 100%; padding: 0rem 5rem">
+        <h3 style="float: left">{{grant.fundname}}</h3>
+        <h4 style="float: right; padding-top: 2rem; font-weight: 300; font-style: italic;">{{grant.sponsor}}</h4>
+      </div>
+      <br>
+      <div style="margin-left: 4.5rem; float: left">
+        {% for t in grant.tags %}
+          <h7 class="tags {{t|tag_to_class}}"">{{ t }}</h7>
+        {% endfor %}
+      </div>
+      <br/>
+      <br/>
+      <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300">{{grant.applink}}</h5>
+    </a>
+<br>
 {% endfor %}
-</div>
 
 
 {% endblock %}

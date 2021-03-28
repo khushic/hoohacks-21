@@ -1,17 +1,46 @@
-<p>{{post.title}}</p>
-<p>{{post.username}}</p>
-<p>{{question.searching}}</p>
-<p>{{question.tags}}</p>
-<p>{{question.content}}</p>
-<br>
+{% extends 'main/base.html' %}
+{% block content %}
+{% load tag_templates %}
+
+<div class="card-top-line info-boxes" style="height: 200px; border-bottom-color: black; border-bottom-width: 5px">
+  <div style="display: inline-block; width: 100%; padding: 0rem 5rem;">
+    <h3 style="float: left">{{post.title}}</h3>
+    <h4 style="float: right; padding-top: 2rem; font-weight: 300; font-style: italic;">{{post.username}}</h4>
+  </div>
+  <br>
+  <div style="margin-left: 4.5rem; float: left">
+    {% for t in post.tags %}
+      <h7 class="tags {{t|tag_to_class}}"">{{ t }}</h7>
+    {% endfor %}
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300">{{post.searching}}</h5>
+  <h5 style="margin-left: 0rem; float: left; font-size: 20px; font-weight: 300">{{post.content}}</h5>
+</div>
+
+
 {% for comment in all_comments %}
-    <p>{{comment.username}}</p>
-    <p>{{comment.comment}}</p>
-    <br>
+    <div class="card-top-line info-boxes" style="width: 90%; height: 100px; border-bottom-color: black; border-bottom-width: 5px; margin: 1rem 0rem 1rem auto">
+      <div style="display: inline-block; width: 100%; padding: 0rem 5rem;">
+        <h4 style="float: left; padding-top: 2.5rem; font-weight: 300">{{comment.comment}}</h4>
+        <h4 style="float: right; padding-top: 2rem; font-weight: 300; font-style: italic;">{{comment.username}}</h4>
+      </div>
+      <br>
+      <br/>
+    </div>
+
 {% endfor %}
 
-<form method="POST" action="{% url 'student-connect:new_connect_comment' post.postID %}" class="form-group">
+<div class="card-top-line info-boxes" style="width: 90%; height: 100px; border-bottom-color: black; border-bottom-width: 5px; margin: 1rem 0rem 1rem auto">
+  <div style="display: inline-block; width: 100%; padding: 3rem 5rem 0rem;">
+    <form method="POST" action="{% url 'student-connect:new_connect_comment' post.postID %}" class="form-group">
   {% csrf_token %}
-  <input type="text" class="form-control" name="comment" id="comment" /><br/>
-  <button type="submit" class="btn btn-success">Comment</button>
+  <input style="display: inline-block; width: 80%; margin-right: 2rem" type="text" class="form-control" name="comment" id="comment" />
+  <button style="display: inline-block" type="submit" class="btn btn-success">Comment</button>
 </form>
+</div>
+</div>
+
+{% endblock %}

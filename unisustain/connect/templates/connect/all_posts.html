@@ -1,8 +1,9 @@
 {% extends "main/base.html" %}
 
 {% block content %}
+{% load tag_templates %}
 <div class="topnav">
-	 <p>Student Connect</p>
+	<h1>Student Connect</h1>
 </div>
 
 <div id="myModal" class="modal fade">
@@ -28,20 +29,29 @@
 	</div>
 </div>
 
-<div class="row">
-<div class="stick-to-right" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
-{% for question in all_questions %}
-<div class="column">
-  <div class="card">
-    <a href="{% url 'student-connect:view_posts' post.postID %}">{{post.title}}</a>
-    <p>{{post.username}}</p>
-    <p>{{post.searching}}</p>
-    <p>{{post.tags}}</p>
-    <br>
-  </div>
-</div>
-{% endfor %}
+<div style="padding-bottom: 1rem">
+<div style="float: left; display: inline-block; height: 96px; margin-bottom: -80px"><h5>Student Connect is the place for students to express their interest in getting involved with research, <br>or to find other students to join their research teams. Post about what fields/research topics you're interested in <br>and your background to meet new students!</h5></div>
+<div style="float: right ; display: inline-block" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
 </div>
 
+{% for post in all_posts %}
+		<a href="{% url 'student-connect:view_posts' post.postID %}" class="card-top-line info-boxes">
+      <div style="display: inline-block; width: 100%; padding: 0rem 5rem">
+        <h3 style="float: left">{{post.title}}</h3>
+        <h4 style="float: right; padding-top: 2rem; font-weight: 300; font-style: italic;">{{post.username}}</h4>
+				<h3 style="float: left; font-weight: 300">{{post.searching}}</h3>
+      </div>
+      <br>
+      <div style="margin-left: 4.5rem; float: left">
+        {% for t in post.tags %}
+          <h7 class="tags {{t|tag_to_class}}"">{{ t }}</h7>
+        {% endfor %}
+      </div>
+      <br/>
+      <br/>
+      <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300">{{question.content}}</h5>
+    </a>
+<br>
+{% endfor %}
 
 {% endblock %}

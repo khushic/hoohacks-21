@@ -6,11 +6,7 @@ from django.forms.models import model_to_dict
 
 def get_all_questions(request):
     all_questions = list(Question.objects.all().values())
-    print("")
-    print(all_questions)
-    print("")
     for i in all_questions:
-        print(i);
         i["username"] = User.objects.get(id=i["user_id"]).username
         i["tags"] = i["tags"].split(", ")
     context = {
@@ -20,9 +16,6 @@ def get_all_questions(request):
 
 def get_question(request, question_id):
     query = Question.objects.get(questionID = question_id)
-    print("")
-    print(query)
-    print("")
     question = model_to_dict(query)
     question["username"] = User.objects.get(id=question["user"]).username
     question["tags"] = question["tags"].split(", ")
@@ -49,7 +42,6 @@ def create_question(request):
     return redirect("../")
 
 def create_comment(request, question_id):
-    print(question_id)
     q = Question.objects.get(questionID = question_id)
     if request.method == "POST":
         created_obj = Questioncomment.objects.get_or_create(
@@ -60,6 +52,7 @@ def create_comment(request, question_id):
     query = Question.objects.get(questionID = question_id)
     question = model_to_dict(query)
     question["username"] = User.objects.get(id=question["user"]).username
+    question["tags"] = question["tags"].split(", ")
     try:
         all_comments = list(Questioncomment.objects.filter(post = question_id).values())
         for i in all_comments:
