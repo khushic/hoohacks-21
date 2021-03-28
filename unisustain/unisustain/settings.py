@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'grants.apps.GrantsConfig',
     'forum.apps.ForumConfig',
     'connect.apps.ConnectConfig',
+    'events.apps.EventsConfig',
 ]
 
 MIDDLEWARE = [

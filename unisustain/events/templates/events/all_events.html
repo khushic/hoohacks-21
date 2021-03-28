@@ -1,0 +1,29 @@
+{% for event in all_events %}
+    <a href="{% url 'events:view_events' event.fundID %}">{{event.fundname}}</a>
+    <p>{{event.sponsor}}</p>
+    <p>{{event.tags}}</p>
+    <p>{{event.school}}</p>
+    <p>{{event.applink}}</p>
+    <br>
+{% endfor %}
+
+<form method="POST" action="/events/new_event/" class="form-group">
+  {% csrf_token %}
+  <label for="event_name">Event Title</label>
+  <input type="text" class="form-control" name="fund_name" id="fund_name" /><br/>
+  <label for="event_date">Event Date</label>
+  <input type="text" class="form-control" name="fund-name" id="fund-name" /><br/>
+  <label for="sponsor">Sponsor</label>
+  <input type="text" class="form-control" name="sponsor" id="sponsor" /><br/>
+  <label for="tags">Tags (comma separated)</label>
+  <input type="text" class="form-control" name="tags" id="tags" /><br/>
+  <label for="schools">Universities Eligible (Enter General if all students can apply)</label>
+  <input type="text" class="form-control" name="schools" id="schools" /><br/>
+  <label for="description">Short Description</label>
+  <input type="text" class="form-control" name="description" id="description" /><br/>
+  <label for="info">Link for more Info</label>
+  <input type="text" class="form-control" name="info" id="info" /><br/>
+  <label for="apply">Link to Apply</label>
+  <input type="text" class="form-control" name="apply" id="apply" /><br/>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
