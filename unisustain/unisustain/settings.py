@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'connect.apps.ConnectConfig',
     'events.apps.EventsConfig',
 	'django_filters',
+    'collaborate.apps.CollaborateConfig',
 ]
 
 MIDDLEWARE = [
@@ -85,8 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'unisustain',
-        'USER': 'khush',
-        'PASSWORD': 'password',
+        'USER': 'root',
+        'PASSWORD': 'dennistian',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -144,3 +146,15 @@ CRIPSY_TEMPLATE_PACK='bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/login'
+
+# Channels
+ASGI_APPLICATION = 'unisustain.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
