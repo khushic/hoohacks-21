@@ -13,22 +13,193 @@
 <title>Side Bar</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
 <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
+<style>
+
+	.modal-login {
+		color: #636363;
+		width: 350px;
+		margin: 200px auto 0;
+	}
+	.modal-login .modal-content {
+		padding: 20px;
+		border-radius: 5px;
+		border: none;
+	}
+	.modal-login .modal-header {
+		border-bottom: none;
+        position: relative;
+        justify-content: center;
+	}
+	.modal-login h4 {
+		text-align: center;
+		font-size: 26px;
+		margin: 30px 0 -15px;
+	}
+	.modal-login .form-control:focus {
+		border-color: #70c5c0;
+	}
+	.modal-login .form-control, .modal-login .btn {
+		min-height: 40px;
+		border-radius: 3px;
+	}
+	.modal-login .close {
+        position: absolute;
+		top: -5px;
+		right: -5px;
+	}
+	.modal-login .modal-footer {
+		background: #ecf0f1;
+		border-color: #dee4e7;
+		text-align: center;
+        justify-content: center;
+		margin: 0 -20px -20px;
+		border-radius: 5px;
+		font-size: 13px;
+	}
+	.modal-login .modal-footer a {
+		color: #999;
+	}
+	.modal-login .avatar {
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		top: -70px;
+		width: 95px;
+		height: 95px;
+		border-radius: 50%;
+		z-index: 9;
+		background: #60c7c1;
+		padding: 15px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+	.modal-login .avatar img {
+		width: 100%;
+	}
+    .modal-login .btn {
+        color: #fff;
+        border-radius: 4px;
+		background: #60c7c1;
+		text-decoration: none;
+		transition: all 0.4s;
+        line-height: normal;
+        border: none;
+    }
+	.modal-login .btn:hover, .modal-login .btn:focus {
+		background: #45aba6;
+		outline: none;
+	}
+</style>
 <body>
 
-<div class="topnav">
-  <a class="active" href="#home"><i class="fa fa-fw fa-search"></i></a>
-  <a href="">/a>
-  <a href="">hi</a>
-  <a href="">hi</a>
+<div>
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-login">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Forum Entry</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<form action="/examples/actions/confirmation.php" method="post">
+					<div class="form-group">
+						<input type="text" class="form-control" name="subject" placeholder="Subject" required="required">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" name="information" placeholder="Information" required="required">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
+<!-- start of actual stuff (modal is b4) -->
+  <div class="topnav">
+    <p>Forum</p>
+
+  </div>
+<div class="row">
+<div class="stick-to-right button_cont" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
+</div>
+<div class="row">
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+  </div>
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+  </div>
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+  </div>
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+
+</div>
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+  </div>
+
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+  </div>
+
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+  </div>
+
+  <div class="column">
+    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <p><h4>Subject: </h4>“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.>
+      <p><h4>Information:</h4>ahsdjkasd>
+
+</div>
+</div>
+<div class="column">
+  <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
+
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- side bar -->
 <nav class="main-menu">
 
 
 
  <div>
-    <a class="logo" href="http://startific.com">
+    <a class="logo" href="">
     </a>
   </div>
 <div class="settings"></div>
@@ -43,12 +214,12 @@
 </a>
 </li>
 
-<li>
-<a href="http://startific.com">
+<!-- <li>
+<a href="">
 <i class="fa fa-home fa-lg"></i>
 <span class="nav-text">Dashboard</span>
 </a>
-</li>
+</li> -->
 
 
 <li>
