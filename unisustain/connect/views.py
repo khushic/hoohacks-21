@@ -64,3 +64,19 @@ def create_comment(request, post_id):
         'all_comments' : all_comments
     }
     return render(request, "connect/post_view.html", context)
+
+
+def filter_posts(request):
+    if request.method == "GET":
+        value = request.GET.get('tags')
+        query_posts = list(Post.objects.all().values())
+        all_posts = []
+        for i in query_posts:
+            i["username"] = User.objects.get(id=i["user_id"]).username
+            i["tags"] = i["tags"].split(", ")
+            if value == 'None' or value in i["tags"]:
+                all_posts.append(i)
+        context = {
+            'all_posts':all_posts
+        }
+    return render(request, "connect/all_posts.html", context)

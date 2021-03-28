@@ -36,3 +36,18 @@ def create_event(response):
             applink=response.POST.get('apply'),
         )
     return redirect("../")
+
+def filter_events(request):
+    if request.method == "GET":
+        value = request.GET.get('tags')
+        query_posts = list(Event.objects.all().values())
+        all_events = []
+        for i in query_posts:
+            i["username"] = User.objects.get(id=i["user_id"]).username
+            i["tags"] = i["tags"].split(", ")
+            if value == 'None' or value in i["tags"]:
+                all_events.append(i)
+        context = {
+            'all_events':all_events
+        }
+    return render(request, "connect/all_events.html", context)

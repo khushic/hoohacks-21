@@ -30,7 +30,35 @@
 </div>
 
 <div style="padding-bottom: 1rem">
-<div style="float: left; display: inline-block; height: 96px; margin-bottom: -80px"><h5>Student Connect is the place for students to express their interest in getting involved with research, <br>or to find other students to join their research teams. Post about what fields/research topics you're interested in <br>and your background to meet new students!</h5></div>
+<div style="float: left; display: inline-block; height: 96px; margin-bottom: -80px; margin-left: 1rem">
+	<h5>Student Connect is the place for students to express their interest in getting involved with research, <br>or to find other students to join their research teams. Post about what fields/research topics you're interested in <br>and your background to meet new students!</h5>
+	<form style="float: left; margin-left: 1rem" action="{% url 'student-connect:filter_posts' %}" method="get">
+    <label for="tags">Tags</label>
+    <select name="tags" id="tags">
+				<option default=True value="None">N/A</option>
+      	<option value="Data Science">Data Science</option>
+				<option value="Machine Learning">Machine Learning</option>
+				<option value="Internet of Things">Internet of Things</option>
+				<option value="Biology">Biology</option>
+				<option value="Chemistry">Chemistry</option>
+				<option value="Mechanics">Mechanics</option>
+				<option value="Electricity and Magnetism">Electricity and Magnetism</option>
+				<option value="Statistics">Statistics</option>
+				<option value="Applied Mathematics">Applied Mathematics</option>
+				<option value="Environmental Science">Environmental Science</option>
+				<option value="Civil Engineering">Civil Engineering</option>
+				<option value="Geology">Geology</option>
+				<option value="Electrical Engineering">Electrical Engineering</option>
+				<option value="Archeology">Archeology</option>
+				<option value="Anthropology">Anthropology</option>
+				<option value="Psychology">Psychology</option>
+				<option value="Technology">Technology</option>
+				<option value="Orthodontics">Orthodontics</option>
+				<option value="Health">Health</option>
+     </select>
+     <input style="background-color: #00bbbb; border: transparent; padding: 2px 7px; border-radius: 2px; color: white" type="submit" value="Filter" />
+	 </form>
+</div>
 <div style="float: right ; display: inline-block" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
 </div>
 
