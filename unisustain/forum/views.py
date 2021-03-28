@@ -6,7 +6,11 @@ from django.forms.models import model_to_dict
 
 def get_all_questions(request):
     all_questions = list(Question.objects.all().values())
+    print("")
+    print(all_questions)
+    print("")
     for i in all_questions:
+        print(i);
         i["username"] = User.objects.get(id=i["user_id"]).username
     context = {
         'all_questions':all_questions
@@ -15,6 +19,9 @@ def get_all_questions(request):
 
 def get_question(request, question_id):
     query = Question.objects.get(questionID = question_id)
+    print("")
+    print(query)
+    print("")
     question = model_to_dict(query)
     question["username"] = User.objects.get(id=question["user"]).username
     try:

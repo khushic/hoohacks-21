@@ -1,17 +1,55 @@
-{% for question in all_questions %}
-    <a href="{% url 'research-forum:view_questions' question.questionID %}">{{question.title}}</a>
-    <p>{{question.username}}</p>
-    <p>{{question.tags}}</p>
-    <br>
-{% endfor %}
+{% extends 'main/base.html'%}
 
-<form method="POST" action="/research-forum/new_question/" class="form-group">
-  {% csrf_token %}
-  <label for="question_name">Question Title</label>
-  <input type="text" class="form-control" name="question_name" id="question_name" /><br/>
-  <label for="tags">Tags (comma separated)</label>
-  <input type="text" class="form-control" name="tags" id="tags" /><br/>
-  <label for="description">Further Details</label>
-  <input type="text" class="form-control" name="description" id="description" /><br/>
-  <button type="submit" class="btn btn-success">Post</button>
-</form>
+{% block content %}
+<div class="topnav">
+	 <p>Forum</p>
+</div>
+
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-login">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Forum Entry</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+        <form method="POST" action="/research-forum/new_question/" class="form-group">
+          {% csrf_token %}
+          <label for="question_name">Question Title</label>
+          <input type="text" class="form-control" name="question_name" id="question_name" /><br/>
+          <label for="tags">Tags (comma separated)</label>
+          <input type="text" class="form-control" name="tags" id="tags" /><br/>
+          <label for="description">Further Details</label>
+          <input type="text" class="form-control" name="description" id="description" /><br/>
+          <button type="submit" class="btn btn-success">Post</button>
+        </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="row">
+<div class="stick-to-right" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
+{% for question in all_questions %}
+<div class="column">
+  <div class="card">
+    <div class="card-top-line">
+      <p>{{question.username}}</p>
+      <a href="{% url 'research-forum:view_questions' question.questionID %}">{{question.title}}</a>
+    </div>
+    <!-- <p>{{question.tags}}</p> -->
+    <p class="question-content">{{question.content}}</p>
+</div>
+</div>
+<br>
+{% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}
