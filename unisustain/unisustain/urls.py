@@ -24,6 +24,10 @@ urlpatterns = [
     path('register/', v.register, name="register"),
     path('', include("django.contrib.auth.urls")),
     path('grants/', include('grants.urls', namespace='grants')),
+<<<<<<< Updated upstream
     path('events/', include('events.urls', namespace='events')),
+>>>>>>> Stashed changes
+=======
+    path('events/', include('events.urls', namespace='events'))
 >>>>>>> Stashed changes
 ]

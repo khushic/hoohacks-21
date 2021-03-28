@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'grants.apps.GrantsConfig',
     'events.apps.EventsConfig',
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 ]
 
