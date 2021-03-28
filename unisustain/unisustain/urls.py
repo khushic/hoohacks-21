@@ -10,4 +10,5 @@ urlpatterns = [
     path('', include("django.contrib.auth.urls")),
     path('grants/', include('grants.urls', namespace='grants')),
     path('research-forum/', include('forum.urls', namespace='research-forum')),
+    path('student-connect/', include('connect.urls', namespace='student-connect')),
 ]

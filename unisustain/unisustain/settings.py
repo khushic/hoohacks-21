@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'grants.apps.GrantsConfig',
     'forum.apps.ForumConfig',
+    'connect.apps.ConnectConfig',
 ]
 
 MIDDLEWARE = [

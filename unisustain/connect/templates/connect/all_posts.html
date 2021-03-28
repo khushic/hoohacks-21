@@ -1,0 +1,18 @@
+{% for post in all_posts %}
+    <a href="{% url 'student-connect:view_posts' post.postID %}">{{post.title}}</a>
+    <p>{{post.username}}</p>
+    <p>{{post.searching}}</p>
+    <p>{{post.tags}}</p>
+    <br>
+{% endfor %}
+
+<form method="POST" action="/student-connect/new_post/" class="form-group">
+  {% csrf_token %}
+  <label for="post_name">Post Title</label>
+  <input type="text" class="form-control" name="post_name" id="post_name" /><br/>
+  <label for="tags">Tags (comma separated)</label>
+  <input type="text" class="form-control" name="tags" id="tags" /><br/>
+  <label for="description">Interests + Qualifications</label>
+  <input type="text" class="form-control" name="description" id="description" /><br/>
+  <button type="submit" class="btn btn-success">Post</button>
+</form>

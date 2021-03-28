@@ -1,0 +1,17 @@
+<p>{{post.title}}</p>
+<p>{{post.username}}</p>
+<p>{{question.searching}}</p>
+<p>{{question.tags}}</p>
+<p>{{question.content}}</p>
+<br>
+{% for comment in all_comments %}
+    <p>{{comment.username}}</p>
+    <p>{{comment.comment}}</p>
+    <br>
+{% endfor %}
+
+<form method="POST" action="{% url 'student-connect:new_connect_comment' post.postID %}" class="form-group">
+  {% csrf_token %}
+  <input type="text" class="form-control" name="comment" id="comment" /><br/>
+  <button type="submit" class="btn btn-success">Comment</button>
+</form>

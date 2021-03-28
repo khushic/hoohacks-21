@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Question, Questioncomment, User
 from django.forms.models import model_to_dict
 
+
 def get_all_questions(request):
     all_questions = list(Question.objects.all().values())
     for i in all_questions:
@@ -16,7 +17,6 @@ def get_question(request, question_id):
     query = Question.objects.get(questionID = question_id)
     question = model_to_dict(query)
     question["username"] = User.objects.get(id=question["user"]).username
-    #i[username] = User.objects.get(id=i.user_id).username
     try:
         all_comments = list(Questioncomment.objects.filter(post = question_id).values())
         for i in all_comments:
@@ -40,15 +40,21 @@ def create_question(request):
     return redirect("../")
 
 def create_comment(request, question_id):
+    print(question_id)
+    q = Question.objects.get(questionID = question_id)
     if request.method == "POST":
         created_obj = Questioncomment.objects.get_or_create(
             comment=request.POST.get('comment'),
             user_id=request.user.id,
-            post_id=question_id,
+            post_id=q.questionID,
         )
-    question = Question.objects.get(questionID = question_id)
+    query = Question.objects.get(questionID = question_id)
+    question = model_to_dict(query)
+    question["username"] = User.objects.get(id=question["user"]).username
     try:
-        all_comments = Questioncomment.objects.filter(post = question_id)
+        all_comments = list(Questioncomment.objects.filter(post = question_id).values())
+        for i in all_comments:
+            i["username"] = User.objects.get(id=i["user_id"]).username
     except Questioncomment.DoesNotExist:
         all_comments = None
     context = {
