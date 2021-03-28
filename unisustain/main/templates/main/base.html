@@ -12,6 +12,7 @@
 <head>
 <title>Side Bar</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/tags.css' %}" />
 <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -97,6 +98,8 @@
 		outline: none;
 	}
 </style>
+{% load tag_templates %}
+
 <body>
 
 <div>
@@ -125,72 +128,11 @@
 	</div>
 </div>
 <!-- start of actual stuff (modal is b4) -->
-  <div class="topnav">
+<div class="topnav" style="margin-left: 30rem; margin-top: 10rem">
     <p>Forum</p>
 
-  </div>
-<div class="row">
-<div class="stick-to-right" align="center"><a class="example_d" href="#myModal" data-toggle="modal" >+</a></div>
-</div>
-<div class="row">
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-  </div>
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-  </div>
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-  </div>
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-
-</div>
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-  </div>
-
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-  </div>
-
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-  </div>
-
-  <div class="column">
-    <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <p><h4>Subject: </h4>“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.>
-      <p><h4>Information:</h4>ahsdjkasd>
-
-</div>
-</div>
-<div class="column">
-  <div class="card">“Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-</div>
-</div>
-</div>
-
+	{% block content %}
+	{% endblock %}
 </div>
 
 <!-- side bar -->

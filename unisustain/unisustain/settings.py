@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'forum.apps.ForumConfig',
     'connect.apps.ConnectConfig',
     'events.apps.EventsConfig',
+	'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'unisustain',
-        'USER': 'root',
+        'USER': 'khush',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306',

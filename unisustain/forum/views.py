@@ -8,6 +8,7 @@ def get_all_questions(request):
     all_questions = list(Question.objects.all().values())
     for i in all_questions:
         i["username"] = User.objects.get(id=i["user_id"]).username
+        i["tags"] = i["tags"].split(", ")
     context = {
         'all_questions':all_questions
     }
@@ -17,6 +18,7 @@ def get_question(request, question_id):
     query = Question.objects.get(questionID = question_id)
     question = model_to_dict(query)
     question["username"] = User.objects.get(id=question["user"]).username
+    question["tags"] = question["tags"].split(", ")
     try:
         all_comments = list(Questioncomment.objects.filter(post = question_id).values())
         for i in all_comments:

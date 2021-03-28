@@ -15,6 +15,7 @@ unisustain/events/migrations/
 unisustain/accounts/__pycache__/
 unisustain/grants/__pycache__/
 unisustain/main/__pycache__/
+unisustain/main/templatetags/__pycache__/
 unisustain/forum/__pycache__/
 unisustain/connect/__pycache__/
 unisustain/events/migrations/

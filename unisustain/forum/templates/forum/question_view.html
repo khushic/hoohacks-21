@@ -1,6 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% load tag_templates %}
+
 <p>{{question.title}}</p>
 <p>{{question.username}}</p>
-<p>{{question.tags}}</p>
+{% for t in question.tags %}
+  <h7 class="tags {{t|tag_to_class}}">{{ t }}</h7>
+{% endfor %}
 <p>{{question.content}}</p>
 <br>
 {% for comment in all_comments %}
@@ -14,3 +21,5 @@
   <input type="text" class="form-control" name="comment" id="comment" /><br/>
   <button type="submit" class="btn btn-success">Comment</button>
 </form>
+
+{% endblock %}

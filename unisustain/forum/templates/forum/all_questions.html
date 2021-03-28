@@ -1,7 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% load tag_templates %}
+
+
 {% for question in all_questions %}
     <a href="{% url 'research-forum:view_questions' question.questionID %}">{{question.title}}</a>
     <p>{{question.username}}</p>
-    <p>{{question.tags}}</p>
+    {% for t in question.tags %}
+      <h7 class="tags {{t|tag_to_class}}">{{ t }}</h7>
+    {% endfor %}
     <br>
 {% endfor %}
 
@@ -11,7 +19,17 @@
   <input type="text" class="form-control" name="question_name" id="question_name" /><br/>
   <label for="tags">Tags (comma separated)</label>
   <input type="text" class="form-control" name="tags" id="tags" /><br/>
+  <div class="btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary active">
+      <input type="checkbox" checked autocomplete="off"> Checked
+    </label>
+    <label class="btn btn-secondary active">
+      <input type="checkbox" checked autocomplete="off"> Checked
+    </label>
+  </div>
   <label for="description">Further Details</label>
   <input type="text" class="form-control" name="description" id="description" /><br/>
   <button type="submit" class="btn btn-success">Post</button>
 </form>
+
+{% endblock %}
