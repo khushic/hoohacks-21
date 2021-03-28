@@ -97,6 +97,10 @@ class Event(models.Model):
         managed = True
         db_table = 'Event'
 
+class Scraping(models.Model):
+    title = models.CharField(max_length=200)
+    link = models.CharField(max_length=2083, default="", unique=True)
+    date = models.DateTimeField(auto_now_add=True)
 
 admin.site.register(Post)
 admin.site.register(Question)
@@ -104,3 +108,4 @@ admin.site.register(Postcomment)
 admin.site.register(Questioncomment)
 admin.site.register(Fund)
 admin.site.register(Event)
+admin.site.register(Scraping)

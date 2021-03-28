@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'connect.apps.ConnectConfig',
     'events.apps.EventsConfig',
 	'django_filters',
+    'scraping.apps.ScrapingConfig',
 ]
 
 MIDDLEWARE = [

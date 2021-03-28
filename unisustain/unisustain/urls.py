@@ -12,4 +12,5 @@ urlpatterns = [
     path('research-forum/', include('forum.urls', namespace='research-forum')),
     path('student-connect/', include('connect.urls', namespace='student-connect')),
     path('events/', include('events.urls', namespace='events')),
+    path('scraping/', include('scraping.urls', namespace='scraping')),
 ]
