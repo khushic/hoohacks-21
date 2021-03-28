@@ -1,14 +1,18 @@
-<!-- chat/templates/chat/index.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Chat Rooms</title>
-</head>
-<body>
-    What chat room would you like to enter?<br>
-    <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
+
+{% extends 'main/base.html'%}
+{% block content %}
+{% load tag_templates %}
+<div class="topnav">
+	<h1>Chat Rooms</h1>
+</div>
+<div>
+    <h4 >What chat room would you like to enter?</h4>
+    <div>
+        <div style="display:flex">
+        <input style="margin-left:40px;width:960px;" id="room-name-input" type="text" size="100"><br>
+        <button id="room-name-submit" type="submit">Enter</button>
+    </div>
+    </div>
 
     <script>
         document.querySelector('#room-name-input').focus();
@@ -23,5 +27,6 @@
             window.location.pathname = '/collaborate/' + roomName + '/';
         };
     </script>
-</body>
+</div>
 </html>
+{% endblock %}
