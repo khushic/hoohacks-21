@@ -17,14 +17,14 @@
   <br/>
   <br/>
   <br/>
-  <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300">{{question.content}}</h5>
+  <h5 style="margin-left: 5rem; float: left; font-size: 20px; font-weight: 300; width: 800px; overflow-y: scroll; padding-bottom: 1rem">{{question.content}}</h5>
 </div>
 
 
 {% for comment in all_comments %}
     <div class="card-top-line info-boxes" style="width: 90%; height: 100px; border-bottom-color: black; border-bottom-width: 5px; margin: 1rem 0rem 1rem auto">
       <div style="display: inline-block; width: 100%; padding: 0rem 5rem;">
-        <h4 style="float: left; padding-top: 2.5rem; font-weight: 300">{{comment.comment}}</h4>
+        <h4 style="float: left; padding-top: 2.5rem; font-weight: 300; width: 700px; overflow-y: scroll; padding-bottom: 2rem">{{comment.comment}}</h4>
         <h4 style="float: right; padding-top: 2rem; font-weight: 300; font-style: italic;">{{comment.username}}</h4>
       </div>
       <br>
